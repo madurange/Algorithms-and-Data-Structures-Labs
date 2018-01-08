@@ -1,0 +1,79 @@
+Summarize your lab:
+
+  Part 1:
+     Works : Yes
+     
+  Part 2:
+     Works : Yes
+     
+  Part 3:
+     Works : Yes
+     
+***ANSWERS TO QUESTIONS***
+ Question 1:
+     Which hash table collision resolution method did you use
+     (eg. chaining or open addressing)? Explain your choice
+     briefly (less than 25 words).
+ YOUR ANSWER:
+Open Addressing Method. As we need to count each tag, we need separete cell for each tag.
+When collision occurs(same key for two different tags), this method tries alternative cells 
+in the array until an empty cell is found. 
+	
+ 
+ 
+ Question 2:
+       Which hash function (division or multiplication) did you use?
+       How did you convert a string into a number?
+ YOUR ANSWER:
+Division.
+To convert a string into a number[sum]: calculate the sum of the characters of that string as every character has a corresponding integer value
+The index of the element[key] = sum%HASH_TABLE_SIZE
+
+ 
+ 
+ Question 3:
+       Another legal XML tag not used in this lab is the
+       stand-alone tag.  This kind of tag
+       combines both a start-tag and end-tag in one.
+       It is identified with a '/' (slash) preceding the
+       final >.  (For example, the <foo/>
+       is a stand-alone tag that is self balancing.
+       
+       Describe briefly how
+       you would modify Part 3 to allow this kind of tag.
+       
+ YOUR ANSWER:
+This Pseudo Code part has the answer.
+.
+.
+if (the characters are not alphabet or one of <,> or /)
+	continue;
+else if(the character is '<'){
+	read the next character
+	if(the next character is alphanumeric){
+		Read in the rest of the characters in the string while checking for a '/' till it gets to '>'
+		if '/' is found check whether the next chatacter is a '>'.
+		only if it's a '>' Add the tag (the string) into the hash table. [Don't need to push to the stack]
+		otherwise keeping reading the remaining characters in the string while checking for a '/' till it gets to '>'
+.
+.
+.
+.
+.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
