@@ -1,0 +1,18 @@
+Name:Pasindu Gusthinna Wadu
+Student No: 500707381
+COE428 - Lab 1
+
+Part 1 (Requirement 1)
+======================
+testSort (Created with sortMain.c, mySort.c) -  Worked Well.
+
+Part 2 (Requirement 2)
+======================
+testSort2 (Created with sortMain2.c, mySort.c) -  Worked Well.
+
+Questions
+=========
+1).
+void mySort(int d[], unsigned int n){
+  betterSort(d,0,n-1);
+}

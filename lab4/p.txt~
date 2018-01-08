@@ -1,0 +1,85 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+#define MAX_STATES 8
+
+void initialize_states();
+void print_states();
+
+/*Declaration of the new Data Structure which represents states*/
+typedef struct state{
+	char name;
+	struct state *next0;
+	struct state *next1;
+}state;
+
+/*Declaration of Needed Arrays */
+state fsm[MAX_STATES];
+/*char garbage[MAX_STATES];*/
+/*char deleted[MAX_STATES]={0};*/
+/*state *current_state;*/
+
+int main(int argc, char * argv[]){
+	
+	
+	
+	/* Setting the starting state to A 
+	current_state=&fsm[0];*/
+
+	initialize_states();
+	print_states();
+
+	exit(0);
+	
+}
+
+
+void initialize_states(){
+
+	int i;
+	char buf[6];
+	FILE *input;
+	input=fopen("myStates.txt","r");
+	
+	for(i=0;i<MAX_STATES;i++){
+		fsm[i].name=(char)(i+65);
+		fgets(buf,6,input);
+		fsm[i].next0=&(fsm[((int)(buf[3]))-65]);
+		fsm[i].next1=&(fsm[((int)(buf[5]))-65]);
+	}
+	fclose(input);
+	
+	
+}
+
+void print_states(){
+
+	int i;
+	for(i=0;i<MAX_STATES;i++){
+		printf("%c %c %c\n",fsm[i].name,(*(fsm[i].next0)).name,(*(fsm[i].next1)).name);
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
