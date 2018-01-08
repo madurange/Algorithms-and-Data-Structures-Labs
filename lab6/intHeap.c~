@@ -1,0 +1,118 @@
+#include <stdio.h>
+
+int heapDelete();
+void addHeap(int);
+int heapSize();
+void heapify(int);
+void printHeap(int);
+void buildMaxHeap();
+
+
+/**
+ *  The functions in this module implement a Heapdata structure
+ *  of integers.
+ */
+
+static int heap[100];
+static int last=0;
+
+/**
+ * heapDelete() removes the biggest integer in the heap and returns it.
+ *
+ */
+
+int heapDelete(){
+	int max=heap[1];
+	heap[1]=heap[last--];
+	heapify(1);
+	return max;
+}
+
+/**
+ *  addHeap(thing2add) adds the "thing2add" to the Heap.
+ *
+ */
+void addHeap(int thing2add){
+	if(last>100){
+		fprintf(stderr,"\nHeap Overflow\n");
+		return;
+	}
+	heap[last]=thing2add;
+	int i=last;
+	int parent=i/2;
+	while(parent>0 && heap[parent]<thing2add){
+		heap[i]=heap[parent];
+		heap[parent]=thing2add;
+		i=parent;
+		parent=i/2;
+	}
+	last++;
+}
+
+/**
+ * heapSize() returns the number of items in the Heap.
+ *
+ */
+int heapSize(){
+  return last-1;  //A dummy return statement
+}
+
+void heapify(int i){
+	int temp;
+	int largest;	
+	int left=2*i;
+	int right=2*i+1;
+	
+	if(left<=heapSize() && heap[i]<heap[left]){
+		largest=left;
+	}else{
+		largest=i;
+	}
+	if(right<=heapSize() && heap[largest]<heap[right]){
+		largest=right;
+	}
+
+	if(largest!=i){
+		temp=heap[i];
+		heap[i]=heap[largest];
+		heap[largest]=temp;
+		heapify(largest);
+	}
+}
+
+void printHeap(int position){
+	int next_position;
+	printf("<node id=\"%d\">",heap[position]);
+	next_position=position*2;
+	if(next_position<=heapSize()){
+		printHeap(next_position);
+	}
+
+	next_position=position*2+1;
+	if(next_position<=heapSize()){
+		printHeap(next_position);
+	}
+	printf("<\\node>");
+}
+
+void buildMaxHeap(){
+	int j;
+	for(j=heapSize()/2;j>=1;j--){
+		heapify(j);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
