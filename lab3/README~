@@ -1,0 +1,41 @@
+Name:Pasindu Gusthinna Wadu
+Student No: 500707381
+COE428 - Lab 3
+
+1. Both insertion sort and merge sort worked well.
+===================================================
+
+2. Analysis for behaviour of Insertion sort and Merge Sort
+==========================================================
+**INSERTION SORT**
+	Worst-Case: 	
+		Comparisons 	= (n-1).n/2 (Order of n^2)
+		Swaps 		= (n-1).n/2 (Order of n^2)
+		Copy Operations	= 0 (Order of 1)
+
+	Average-Case: In this case the running time would be half of the worst-case running time.But in asymptotic notation, where constant coefficients don't matter, the running time in the average case would still be in order of n^2, just like the worst case.
+ 	
+		Comparisons 	= (Order of n^2)
+		Swaps 		= (Order of n^2) 	
+		Copy Operations	= 0 (Order of 1)
+
+	Best-Case: 	
+		Comparisons 	= (n-1) (Order of n)
+		Swaps 		= 0 (Order of 1)
+		Copy Operations	= 0 (Order of 1)
+
+**MERGE SORT**
+	Worst-Case: 	
+		Comparisons 	= (Order of n.log[n])
+		Swaps 		= 0 (Order of 1) 	
+		Copy Operations	= (Order of n.log[n])
+
+	Average-Case: 	
+		Comparisons 	= (Order of n.log[n])
+		Swaps 		= 0 (Order of 1)	
+		Copy Operations	= (Order of n.log[n])
+
+	Best-Case: 	
+		Comparisons 	= (Order of n.log[n])
+		Swaps 		= 0 (Order of 1) 	
+		Copy Operations	= (Order of n.log[n])
